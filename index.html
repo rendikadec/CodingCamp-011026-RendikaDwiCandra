@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Desk — Life Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Daily Desk beranda">
+      <span class="brand-icon">d.</span>
+      <span>daily<span class="brand-light">desk</span></span>
+    </a>
+    <div class="topbar-right">
+      <span class="date-chip" id="topDate">Hari ini</span>
+      <button class="theme-button" id="themeButton" type="button" aria-label="Ganti tema">☾</button>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="welcome">
+      <div>
+        <p class="section-label">YOUR SPACE · YOUR PACE</p>
+        <h1 id="greeting">Selamat pagi, Teman!</h1>
+        <p class="welcome-copy">Rencanakan hari ini. Selesaikan satu hal pada satu waktu.</p>
+      </div>
+      <button class="name-button" id="nameButton" type="button">✎ Ubah nama</button>
+    </section>
+
+    <section class="clock-card">
+      <div>
+        <p class="clock-label">WAKTU SEKARANG</p>
+        <div class="clock" id="clock">00:00:00</div>
+        <p class="clock-date" id="date">Memuat tanggal...</p>
+      </div>
+      <div class="clock-art" aria-hidden="true">
+        <div class="art-circle"></div>
+        <span class="art-star star-one">✦</span>
+        <span class="art-star star-two">✧</span>
+        <span class="art-dot dot-one"></span>
+        <span class="art-dot dot-two"></span>
+      </div>
+    </section>
+
+    <section class="dashboard-grid">
+      <article class="card tasks-card" id="tasks">
+        <div class="card-heading">
+          <div>
+            <p class="section-label">PLAN YOUR DAY</p>
+            <h2>Daftar tugas <span class="count" id="taskCount">0</span></h2>
+          </div>
+          <span class="heading-icon">☷</span>
+        </div>
+
+        <form id="taskForm" class="task-form">
+          <input id="taskInput" type="text" maxlength="120" placeholder="Apa yang ingin kamu kerjakan?" required>
+          <button type="submit" aria-label="Tambah tugas">+</button>
+        </form>
+
+        <div class="task-tabs" role="group" aria-label="Filter tugas">
+          <button type="button" class="tab active" data-filter="all">Semua</button>
+          <button type="button" class="tab" data-filter="active">Berjalan</button>
+          <button type="button" class="tab" data-filter="done">Selesai</button>
+        </div>
+
+        <ul id="taskList" class="task-list"></ul>
+        <div class="task-footer">
+          <span id="taskSummary">Belum ada tugas</span>
+          <button id="clearDone" type="button">Bersihkan yang selesai</button>
+        </div>
+      </article>
+
+      <div class="right-column">
+        <article class="card timer-card" id="focus">
+          <div class="card-heading">
+            <div>
+              <p class="section-label">TAKE A BREATH</p>
+              <h2>Waktu fokus</h2>
+            </div>
+            <span class="heading-icon timer-icon">◷</span>
+          </div>
+          <div class="timer-display" id="timer">25:00</div>
+          <p class="timer-caption">Fokus sebentar, hasil terasa.</p>
+          <div class="timer-controls">
+            <button id="startTimer" class="start-button" type="button">▶ Mulai</button>
+            <button id="stopTimer" class="secondary-button" type="button">Ⅱ Jeda</button>
+            <button id="resetTimer" class="secondary-button" type="button">↻ Ulang</button>
+          </div>
+          <p class="timer-note">Sesi Pomodoro standar · 25 menit</p>
+        </article>
+
+        <article class="card links-card" id="quicklinks">
+          <div class="card-heading">
+            <div>
+              <p class="section-label">ONE CLICK AWAY</p>
+              <h2>Link favorit</h2>
+            </div>
+            <span class="heading-icon link-icon">↗</span>
+          </div>
+          <form id="linkForm" class="link-form">
+            <input id="linkName" type="text" maxlength="30" placeholder="Nama link" required>
+            <input id="linkUrl" type="text" placeholder="Alamat website" required>
+            <button type="submit">Tambah link</button>
+          </form>
+          <ul id="linkList" class="link-list"></ul>
+        </article>
+
+        <aside class="quote-card">
+          <span class="quote-mark">“</span>
+          <p>Mulai saja dulu. Kemajuan datang dari langkah kecil yang dilakukan terus-menerus.</p>
+          <span class="quote-caption">A LITTLE REMINDER</span>
+        </aside>
+      </div>
+    </section>
+    <footer>Daily Desk <span>•</span> Dashboard sederhana untuk hari yang lebih teratur.</footer>
+  </main>
+
+  <div id="message" class="message" role="status" aria-live="polite"></div>
+</body>
+</html>
